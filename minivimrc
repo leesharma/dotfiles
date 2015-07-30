@@ -10,16 +10,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'                " let Vundle manage Vundle, required
 Plugin 'altercation/vim-colors-solarized' " Solarized color scheme
 Plugin 'christoomey/vim-tmux-navigator'   " navigate seamlessly between tmux and vim
-Plugin 'vim-ruby/vim-ruby'                " vim/ruby configuration files
-Plugin 'tpope/vim-rvm'			              " rvm support
-Plugin 'tpope/vim-bundler'		            " lightweight wrapper for bundler
-Plugin 'tpope/vim-rake'			              " for non-rails projects
-Plugin 'tpope/vim-rails'		              " rails support
-Plugin 'kana/vim-textobj-user'		        " allow for custom text object definitions
-Plugin 'nelstrom/vim-textobj-rubyblock'   " rubyblock text objects
-Plugin 'tpope/vim-fugitive'		            " git wrapper (search .git directory)
-Plugin 'ntpeters/vim-better-whitespace'   " highlight and remove whitespace
-Plugin 'bling/vim-airline'                " better status line
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

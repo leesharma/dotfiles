@@ -1,12 +1,15 @@
 [user]
   name = Lee Sharma
   email = lee@leesharma.com
+
 [core]
   excludesfile = /Users/lee/.gitignore_global
   autocrlf = input
   editor = vim
+
 [color]
   ui = true
+
 [alias]
   aa = add --all
   ap = add --patch
@@ -17,14 +20,10 @@
   c = commit
   ca = commit --amend
   glog = log -i -E --grep
-	ctags = !.git/hooks/ctags
+  ctags = !.git/hooks/ctags
+
 [push]
   default = matching
+
 [init]
-	templatedir = ~/.git_template
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.localized/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  templatedir = ~/.git_template

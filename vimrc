@@ -12,19 +12,28 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'                " let Vundle manage Vundle, required
 Plugin 'altercation/vim-colors-solarized' " Solarized color scheme
 Plugin 'christoomey/vim-tmux-navigator'   " navigate seamlessly between tmux and vim
+
 Plugin 'vim-ruby/vim-ruby'                " vim/ruby configuration files
-Plugin 'tpope/vim-rvm'			              " rvm support
-Plugin 'tpope/vim-bundler'		            " lightweight wrapper for bundler
-Plugin 'tpope/vim-rake'			              " for non-rails projects
-Plugin 'tpope/vim-rails'		              " rails support
-Plugin 'kana/vim-textobj-user'		        " allow for custom text object definitions
+Plugin 'tpope/vim-rvm'                    " rvm support
+Plugin 'tpope/vim-bundler'                " lightweight wrapper for bundler
+Plugin 'tpope/vim-rake'	                  " for non-rails projects
+Plugin 'tpope/vim-rails'                  " rails support
+" TODO find an rspec highlight/textobj plugin
+
+Plugin 'pangloss/vim-javascript'          " javascript syntax/indentation
+Plugin 'jelera/vim-javascript-syntax'     " more complete js syntax
+Plugin 'moll/vim-node'                    " like rails.vim for node
+Plugin 'burnettk/vim-angular'             " vim does angular
+
+Plugin 'kana/vim-textobj-user'            " allow for custom text object definitions
 Plugin 'nelstrom/vim-textobj-rubyblock'   " rubyblock text objects
-Plugin 'tpope/vim-fugitive'		            " git wrapper (search .git directory)
+Plugin 'tpope/vim-fugitive'               " git wrapper (search .git directory)
 Plugin 'ntpeters/vim-better-whitespace'   " highlight and remove whitespace
 Plugin 'bling/vim-airline'                " better status line
-Plugin 'pangloss/vim-javascript'          " javascript syntax/indentation
 Plugin 'scrooloose/syntastic'             " syntax checking
 Plugin 'kien/ctrlp.vim'                   " fuzzy file finding
+"Plugin 'ludovicchabant/vim-ctrlp-autoignore' " local config for ctrl-p
+"FIXME: doesn't seem to be working
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,30 +60,20 @@ autocmd VimResized * :wincmd =
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
-"WINDOW FOCUS (interferes with layout balancing)
-"TODO: delete/reenable
-"set winwidth=84
-"set winheight=5
-"set winminheight=5
-"set winheight=999
-
 "CTRL-P FILE FINDING
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor " Rails
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
   \  'dir':  '\v[\/]\.(git|hg|svn)$',
   \  'file': '\v\.(exe|so|dll|git)$',
   \  'link': 'some_bad_symbolic_links',
   \ }
 
-let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-"let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+"let g:ctrlp_extensions = ['autoignore']
 
 "SYNTAX CHECKING
 "(recommended default settings)
@@ -87,6 +86,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ["jshint"]
+let g:syntastic_ruby_checkers = ["rubocop"]
 
 "LINE NUMBERING
 set relativenumber
@@ -112,7 +112,7 @@ set incsearch
 
 "OPERATION
 set backspace=2
-set nobackup
+set nobackup "TODO: ensure this is working
 
 "to inspect the 'path' option, run :Path
 command! Path :echo join(split(&path, ","), "\n")
@@ -123,11 +123,12 @@ set t_Co=256
 set background=dark
 colorscheme solarized
 
-"airline
+"AIRLINE STATUS BAR
 let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 3
 
+"LINE LENGTH INDICATOR
 if exists('+colorcolumn')
   set colorcolumn=80
 else

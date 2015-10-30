@@ -24,6 +24,10 @@ Plugin 'pangloss/vim-javascript'          " javascript syntax/indentation
 Plugin 'jelera/vim-javascript-syntax'     " more complete js syntax
 Plugin 'moll/vim-node'                    " like rails.vim for node
 Plugin 'burnettk/vim-angular'             " vim does angular
+Plugin 'kchmck/vim-coffee-script'         " syntax highlighting for coffeescript
+
+Plugin 'godlygeek/tabular'                " dependency of vim-markdown, lines up text
+Plugin 'plasticboy/vim-markdown'          " better markdown highlighting
 
 Plugin 'kana/vim-textobj-user'            " allow for custom text object definitions
 Plugin 'nelstrom/vim-textobj-rubyblock'   " rubyblock text objects
@@ -68,7 +72,7 @@ let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = {
-  \  'dir':  '\v[\/]\.(git|hg|svn)$',
+  \  'dir':  '\v[\/](\.(git|hg|svn)|(node_modules|dist))$',
   \  'file': '\v\.(exe|so|dll|git)$',
   \  'link': 'some_bad_symbolic_links',
   \ }
@@ -88,6 +92,14 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ["jshint"]
 let g:syntastic_ruby_checkers = ["rubocop"]
 
+if !exists('g:syntastic_html_tidy_ignore_errors')
+  let g:syntastic_html_tidy_ignore_errors = []
+endif
+let g:syntastic_html_tidy_ignore_errors += [
+  \ '<ion-',
+  \ 'discarding unexpected </ion-'
+  \ ]
+
 "LINE NUMBERING
 set relativenumber
 set number
@@ -95,6 +107,7 @@ set ruler
 
 "SYNTAX
 syntax on
+au BufNewFile,BufRead *.prawn set filetype=ruby  " .prawn files are ruby
 
 "FOLDING
 set foldmethod=syntax
@@ -102,6 +115,8 @@ set foldlevelstart=4
 
 "INDENTATION
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+set expandtab shiftwidth=2 tabstop=2
 "set expandtab shiftwidth=2 tabstop=2
 "autocmd FileType javascript setlocal expandtab shiftwidth=4 tabstop=4
 autocmd Filetype javascript setlocal tabstop=4 shiftwidth=4 expandtab

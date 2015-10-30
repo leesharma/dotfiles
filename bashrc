@@ -52,6 +52,9 @@ export EDITOR='/usr/bin/vim'
 PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
 export PATH
 
+# adding my binaries to the path
+export PATH="~/GitHub/bin:$PATH"
+
 export NVM_DIR="/Users/lee/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 

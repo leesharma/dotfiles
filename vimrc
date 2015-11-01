@@ -12,6 +12,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'                " let Vundle manage Vundle, required
 Plugin 'altercation/vim-colors-solarized' " Solarized color scheme
 Plugin 'christoomey/vim-tmux-navigator'   " navigate seamlessly between tmux and vim
+Plugin 'scrooloose/nerdcommenter'         " easily comment/uncomment in code
+Plugin 'tpope/vim-surround'               " quoting/parenthizing made simple
 
 Plugin 'vim-ruby/vim-ruby'                " vim/ruby configuration files
 Plugin 'tpope/vim-rvm'                    " rvm support
@@ -53,6 +55,9 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+"LEADER
+let mapleader=","
 
 "MACROS
 runtime macros/matchit.vim

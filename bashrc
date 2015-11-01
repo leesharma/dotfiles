@@ -47,14 +47,6 @@ export LESS_TERMCAP_ZW=$(tput rsupm)
 # Setting default editor to vim
 export EDITOR='/usr/bin/vim'
 
-# Setting PATH for Python 3.4
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-export PATH
-
-# adding my binaries to the path
-export PATH="~/GitHub/bin:$PATH"
-
 export NVM_DIR="/Users/lee/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -66,11 +58,6 @@ export NVM_DIR="/Users/lee/.nvm"
 alias ls='ls -la'
 # tree all
 alias tree='tree -a'
-
-# Setting PATH for Python 3.4
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-export PATH
 
 export NVM_DIR="/Users/lee/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

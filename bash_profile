@@ -15,3 +15,17 @@
 # prompt-string, env settings, etc. They should be silent settings, i.e., no
 # noise to stdout.
 
+############################
+##      Path Setup        ##
+############################
+
+# Setting PATH for Python 3.4
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+export PATH
+
+# add psql to PATH
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+
+# adding my binaries to PATH
+export PATH="~/GitHub/bin:$PATH"

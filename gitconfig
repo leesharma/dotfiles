@@ -6,6 +6,7 @@
   excludesfile = ~/.gitignore_global
   autocrlf = input
   editor = vim
+  ignorecase = false
 
 [color]
   ui = true
@@ -14,13 +15,16 @@
   aa = add --all
   ap = add --patch
   branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
-  lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  co = checkout
-  s = status -s
   c = commit
   ca = commit --amend
-  glog = log -i -E --grep
+  co = checkout
   ctags = !.git/hooks/ctags
+  glog = log -i -E --grep
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  s = status -s
+  st = stash
+  sp = stash pop
+  who = shortlog -s -n -e
 
 [push]
   default = simple

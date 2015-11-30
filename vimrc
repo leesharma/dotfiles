@@ -1,4 +1,4 @@
-" TODO: fix ctrl-p ignored files/directiories
+" TODO: fix ctrl-p ignored files/directories
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -13,7 +13,7 @@ Plugin 'gmarik/Vundle.vim'                " let Vundle manage Vundle, required
 Plugin 'altercation/vim-colors-solarized' " Solarized color scheme
 Plugin 'christoomey/vim-tmux-navigator'   " navigate seamlessly between tmux and vim
 Plugin 'scrooloose/nerdcommenter'         " easily comment/uncomment in code
-Plugin 'tpope/vim-surround'               " quoting/parenthizing made simple
+Plugin 'tpope/vim-surround'               " quoting/parenthesizing made simple
 
 Plugin 'vim-ruby/vim-ruby'                " vim/ruby configuration files
 Plugin 'tpope/vim-rvm'                    " rvm support
@@ -105,6 +105,12 @@ let g:syntastic_html_tidy_ignore_errors += [
   \ 'discarding unexpected </ion-'
   \ ]
 
+"SPELLCHECK"
+set complete+=kspell  "autocomplete words if spellcheck is enabled"
+autocmd FileType gitcommit setlocal spell spelllang=en_us
+autocmd FileType markdown setlocal spell spelllang=en_us
+autocmd FileType text setlocal spell spelllang=en_us
+
 "LINE NUMBERING
 set relativenumber
 set number
@@ -154,3 +160,6 @@ if exists('+colorcolumn')
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
+
+"CTAGS
+nnoremap <leader>tt :!ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)

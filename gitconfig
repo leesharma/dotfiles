@@ -19,6 +19,7 @@
   c = commit
   ca = commit --amend
   co = checkout
+  current-branch = name-rev --name-only HEAD
   ctags = !.git/hooks/ctags
   f = fetch --all
   glog = log -i -E --grep
@@ -29,6 +30,7 @@
   sshow = "!f() { git stash show stash^{/$*} -p; }; f"
   sl = stash list
   sp = stash pop
+  su = stash -u
   who = shortlog -s -n -e
 
 [push]

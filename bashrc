@@ -49,6 +49,10 @@ export EDITOR='/usr/bin/vim'
 
 export NVM_DIR="/Users/lee/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+export MONO_GAC_PREFIX="/usr/local"
+
+source ./git-completion.bash
 
 ###########################
 ##        Aliases        ##
@@ -62,3 +66,6 @@ alias tree='tree -a'
 export NVM_DIR="/Users/lee/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+
+# added by travis gem
+[ -f /Users/lee/.travis/travis.sh ] && source /Users/lee/.travis/travis.sh

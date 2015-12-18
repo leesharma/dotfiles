@@ -28,6 +28,9 @@ Plugin 'moll/vim-node'                    " like rails.vim for node
 Plugin 'burnettk/vim-angular'             " vim does angular
 Plugin 'kchmck/vim-coffee-script'         " syntax highlighting for coffeescript
 
+Plugin 'dag/vim2hs'                       " Better Haskell syntax highlighting
+Plugin 'lukerandall/haskellmode-vim'      " Haskell utilities
+
 Plugin 'godlygeek/tabular'                " dependency of vim-markdown, lines up text
 Plugin 'plasticboy/vim-markdown'          " better markdown highlighting
 
@@ -96,6 +99,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ["jshint"]
 let g:syntastic_ruby_checkers = ["rubocop"]
+" let g:syntastic_haskell_checkers = ["ghc-mod"]
 
 if !exists('g:syntastic_html_tidy_ignore_errors')
   let g:syntastic_html_tidy_ignore_errors = []
@@ -104,6 +108,11 @@ let g:syntastic_html_tidy_ignore_errors += [
   \ '<ion-',
   \ 'discarding unexpected </ion-'
   \ ]
+
+"HASKELL"
+au Bufenter *.hs compiler ghc " use ghc for haskell files
+let g:haddock_browser="/Applications/Google\ Chrome.app"
+let g:haddock_browser="%s %s"
 
 "SPELLCHECK"
 set complete+=kspell  "autocomplete words if spellcheck is enabled"

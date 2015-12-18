@@ -29,3 +29,15 @@ export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 
 # adding my binaries to PATH
 export PATH="~/GitHub/bin:$PATH"
+
+# add cabal packages to PATH
+export PATH="$HOME/.cabal/bin:$PATH"
+
+##
+# Your previous /Users/lee/.bash_profile file was backed up as /Users/lee/.bash_profile.macports-saved_2015-12-16_at_13:25:32
+##
+
+# MacPorts Installer addition on 2015-12-16_at_13:25:32: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

@@ -19,25 +19,21 @@
 ##      Path Setup        ##
 ############################
 
-# Setting PATH for Python 3.4
+# Setting PATH for Python 3.4 and 2.7
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-export PATH
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin/python:${PATH}"
 
 # add psql to PATH
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 
 # adding my binaries to PATH
-export PATH="~/GitHub/bin:$PATH"
+PATH="~/GitHub/bin:$PATH"
 
 # add cabal packages to PATH
-export PATH="$HOME/.cabal/bin:$PATH"
-
-##
-# Your previous /Users/lee/.bash_profile file was backed up as /Users/lee/.bash_profile.macports-saved_2015-12-16_at_13:25:32
-##
+PATH="$HOME/.cabal/bin:$PATH"
 
 # MacPorts Installer addition on 2015-12-16_at_13:25:32: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
+PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
+export PATH

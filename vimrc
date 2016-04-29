@@ -1,4 +1,8 @@
-" TODO: fix ctrl-p ignored files/directories
+" To-Do List {{{
+" FIXME: fix ctrl-p ignored files/directories
+" FIXME: nobackup
+" TODO: find an rspec highlight/textobj plugin
+" }}}
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -29,7 +33,11 @@ Plugin 'burnettk/vim-angular'             " vim does angular
 Plugin 'kchmck/vim-coffee-script'         " syntax highlighting for coffeescript
 
 Plugin 'dag/vim2hs'                       " Better Haskell syntax highlighting
-Plugin 'lukerandall/haskellmode-vim'      " Haskell utilities
+Plugin 'lukerandall/haskellmode-vim'      " Haskell utilities {{{
+  au Bufenter *.hs compiler ghc " use ghc for haskell files
+  let g:haddock_browser="/Applications/Google\ Chrome.app"
+  let g:haddock_browser="%s %s"
+" }}}
 
 Plugin 'godlygeek/tabular'                " dependency of vim-markdown, lines up text
 Plugin 'plasticboy/vim-markdown'          " better markdown highlighting
@@ -38,11 +46,49 @@ Plugin 'kana/vim-textobj-user'            " allow for custom text object definit
 Plugin 'nelstrom/vim-textobj-rubyblock'   " rubyblock text objects
 Plugin 'tpope/vim-fugitive'               " git wrapper (search .git directory)
 Plugin 'ntpeters/vim-better-whitespace'   " highlight and remove whitespace
-Plugin 'bling/vim-airline'                " better status line
-Plugin 'scrooloose/syntastic'             " syntax checking
-Plugin 'kien/ctrlp.vim'                   " fuzzy file finding
+Plugin 'bling/vim-airline'                " better status line {{{
+  let g:airline_powerline_fonts = 1
+  set laststatus=2
+  let g:airline#extensions#tabline#enabled = 3
+" }}}
+Plugin 'scrooloose/syntastic'             " syntax checking {{{
+  "recommended default settings"
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_javascript_checkers = ["jshint"]
+  let g:syntastic_ruby_checkers = ["rubocop"]
+  " let g:syntastic_haskell_checkers = ["ghc-mod"]
+
+  if !exists('g:syntastic_html_tidy_ignore_errors')
+    let g:syntastic_html_tidy_ignore_errors = []
+  endif
+  let g:syntastic_html_tidy_ignore_errors += [
+    \ '<ion-',
+    \ 'discarding unexpected </ion-'
+    \ ]
+" }}}
+Plugin 'kien/ctrlp.vim'                   " fuzzy file finding {{{
+  let g:ctrlp_map = '<c-p>'
+  let g:ctrlp_cmd = 'CtrlP'
+  let g:ctrlp_working_path_mode = 'ra'
+
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+  set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+  let g:ctrlp_custom_ignore = {
+    \  'dir':  '\v[\/](\.(git|hg|svn)|(node_modules|dist))$',
+    \  'file': '\v\.(exe|so|dll|git)$',
+    \  'link': 'some_bad_symbolic_links',
+    \ }
+
+  " let g:ctrlp_extensions = ['autoignore']
+" }}}
 "Plugin 'ludovicchabant/vim-ctrlp-autoignore' " local config for ctrl-p
-"FIXME: doesn't seem to be working
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,110 +111,66 @@ let mapleader=","
 "MACROS
 runtime macros/matchit.vim
 
-"LAYOUT BALANCING
+" {{{ LAYOUT BALANCING
 " automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
+  autocmd VimResized * :wincmd =
 " zoom a vim pane, <C-w>= to re-balance
-nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>
+  nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+  nnoremap <leader>= :wincmd =<cr>
+" }}}
 
-"CTRL-P FILE FINDING
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+" {{{ SPELLCHECK
+  set complete+=kspell  "autocomplete words if spellcheck is enabled"
+" }}}
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-let g:ctrlp_custom_ignore = {
-  \  'dir':  '\v[\/](\.(git|hg|svn)|(node_modules|dist))$',
-  \  'file': '\v\.(exe|so|dll|git)$',
-  \  'link': 'some_bad_symbolic_links',
-  \ }
+" {{{ LINE NUMBERING
+  set relativenumber
+  set number
+  set ruler
+" }}}
 
-"let g:ctrlp_extensions = ['autoignore']
+" {{{ SYNTAX
+" Other filetype detections are in ./ftdetect/*.vim
+  syntax on
+" }}}
 
-"SYNTAX CHECKING
-"(recommended default settings)
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" {{{ FOLDING
+" language-specific settings found in ./vim/after/ftplugin/*.vim
+  set foldmethod=syntax
+  set foldlevelstart=4
+" }}}
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ["jshint"]
-let g:syntastic_ruby_checkers = ["rubocop"]
-" let g:syntastic_haskell_checkers = ["ghc-mod"]
+" {{{ INDENTATION
+" language-specific settings found in ./vim/after/ftplugin/*.vim
+  set expandtab shiftwidth=2 tabstop=2
+" }}}
 
-if !exists('g:syntastic_html_tidy_ignore_errors')
-  let g:syntastic_html_tidy_ignore_errors = []
-endif
-let g:syntastic_html_tidy_ignore_errors += [
-  \ '<ion-',
-  \ 'discarding unexpected </ion-'
-  \ ]
+" {{{ SEARCH
+  set hlsearch
+  set incsearch
+" }}}
 
-"HASKELL"
-au Bufenter *.hs compiler ghc " use ghc for haskell files
-let g:haddock_browser="/Applications/Google\ Chrome.app"
-let g:haddock_browser="%s %s"
+" {{{ OPERATION
+  set backspace=2
+  set nobackup "TODO: ensure this is working
+" }}}
 
-"SPELLCHECK"
-set complete+=kspell  "autocomplete words if spellcheck is enabled"
-autocmd FileType gitcommit setlocal spell spelllang=en_us
-autocmd FileType markdown setlocal spell spelllang=en_us
-autocmd FileType text setlocal spell spelllang=en_us
+" {{{ APPEARANCE
+  set t_Co=256
+  "let g:solarized_termcolors=256
+  set background=dark
+  colorscheme solarized
 
-"LINE NUMBERING
-set relativenumber
-set number
-set ruler
+  "line length indicator"
+  if exists('+colorcolumn')
+    set colorcolumn=80
+  else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+  endif
+" }}}
 
-"SYNTAX
-syntax on
-au BufNewFile,BufRead *.prawn set filetype=ruby  " .prawn files are ruby
-
-"FOLDING
-set foldmethod=syntax
-set foldlevelstart=4
-
-"INDENTATION
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
-autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
-set expandtab shiftwidth=2 tabstop=2
-"set expandtab shiftwidth=2 tabstop=2
-"autocmd FileType javascript setlocal expandtab shiftwidth=4 tabstop=4
-autocmd Filetype javascript setlocal tabstop=4 shiftwidth=4 expandtab
-
-"SEARCH
-set hlsearch
-set incsearch
-
-"OPERATION
-set backspace=2
-set nobackup "TODO: ensure this is working
-
-"to inspect the 'path' option, run :Path
-command! Path :echo join(split(&path, ","), "\n")
-
-"APPEARANCE
-set t_Co=256
-"let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
-
-"AIRLINE STATUS BAR
-let g:airline_powerline_fonts = 1
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 3
-
-"LINE LENGTH INDICATOR
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
-
-"CTAGS
+"generate ctags"
 nnoremap <leader>tt :!ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
+
+"to inspect the 'path' option, run :Path"
+command! Path :echo join(split(&path, ","), "\n")

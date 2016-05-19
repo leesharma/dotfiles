@@ -19,6 +19,9 @@ Plugin 'christoomey/vim-tmux-navigator'   " navigate seamlessly between tmux and
 Plugin 'scrooloose/nerdcommenter'         " easily comment/uncomment in code
 Plugin 'tpope/vim-surround'               " quoting/parenthesizing made simple
 
+Plugin 'keith/swift.vim'                  " swift highlighting and indentation
+
+Plugin 'slim-template/vim-slim'           " syntax highlighting for slim
 Plugin 'vim-ruby/vim-ruby'                " vim/ruby configuration files
 Plugin 'tpope/vim-rvm'                    " rvm support
 Plugin 'tpope/vim-bundler'                " lightweight wrapper for bundler

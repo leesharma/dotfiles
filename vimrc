@@ -21,6 +21,8 @@ Plugin 'tpope/vim-surround'               " quoting/parenthesizing made simple
 
 Plugin 'keith/swift.vim'                  " swift highlighting and indentation
 
+Plugin 'elixir-lang/vim-elixir'           " elixir highlighting and indentation
+
 Plugin 'slim-template/vim-slim'           " syntax highlighting for slim
 Plugin 'vim-ruby/vim-ruby'                " vim/ruby configuration files
 Plugin 'tpope/vim-rvm'                    " rvm support

@@ -33,6 +33,7 @@
   sp = stash pop
   su = stash -u
   who = shortlog -s -n -e
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 [push]
   default = simple

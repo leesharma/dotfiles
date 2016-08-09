@@ -18,6 +18,7 @@ Plugin 'altercation/vim-colors-solarized' " Solarized color scheme
 Plugin 'christoomey/vim-tmux-navigator'   " navigate seamlessly between tmux and vim
 Plugin 'scrooloose/nerdcommenter'         " easily comment/uncomment in code
 Plugin 'tpope/vim-surround'               " quoting/parenthesizing made simple
+Plugin 'ap/vim-css-color'                 " highlight CSS hex colors
 
 Plugin 'keith/swift.vim'                  " swift highlighting and indentation
 

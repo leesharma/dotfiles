@@ -33,7 +33,9 @@ PATH="~/GitHub/bin:$PATH"
 # add cabal packages to PATH
 PATH="$HOME/.cabal/bin:$PATH"
 
-# MacPorts Installer addition on 2015-12-16_at_13:25:32: adding an appropriate PATH variable for use with MacPorts.
+# MacPorts Installer addition on 2015-12-16_at_13:25:32:
+#   adding an appropriate PATH variable for use with MacPorts.
 PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 export PATH
+# eval "$(exenv init -)" # TODO: "An error of type -10665 has occurred."

@@ -31,6 +31,6 @@ directory. They can be removed, moved, combined, etc. from there.
 
 ### License
 
-[MIT][LICENSE] - please feel free to fork, clone, use, or modify anything you
+[MIT](LICENSE) - please feel free to fork, clone, use, or modify anything you
 find here.
 

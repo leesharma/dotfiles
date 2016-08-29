@@ -20,6 +20,7 @@
   ca = commit --amend
   cloc = "!f() { cloc $(git ls-files); }; f"
   co = checkout
+  context = blame
   current-branch = name-rev --name-only HEAD
   ctags = !.git/hooks/ctags
   f = fetch --all

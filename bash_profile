@@ -39,3 +39,5 @@ PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 export PATH
 # eval "$(exenv init -)" # TODO: "An error of type -10665 has occurred."
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash

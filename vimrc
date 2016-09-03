@@ -26,7 +26,7 @@ Plugin 'elixir-lang/vim-elixir'           " elixir highlighting and indentation
 
 Plugin 'slim-template/vim-slim'           " syntax highlighting for slim
 Plugin 'vim-ruby/vim-ruby'                " vim/ruby configuration files
-Plugin 'tpope/vim-rvm'                    " rvm support
+" Plugin 'tpope/vim-rvm'                    " rvm support
 Plugin 'tpope/vim-bundler'                " lightweight wrapper for bundler
 Plugin 'tpope/vim-rake'	                  " for non-rails projects
 Plugin 'tpope/vim-rails'                  " rails support
@@ -57,7 +57,7 @@ Plugin 'bling/vim-airline'                " better status line {{{
   set laststatus=2
   let g:airline#extensions#tabline#enabled = 3
 " }}}
-Plugin 'scrooloose/syntastic'             " syntax checking {{{
+" Plugin 'scrooloose/syntastic'             " syntax checking {{{
   "recommended default settings"
   set statusline+=%#warningmsg#
   set statusline+=%{SyntasticStatuslineFlag()}

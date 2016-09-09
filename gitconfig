@@ -2,3 +2,26 @@
   name = Lee Sharma
   email = lee@leesharma.com
 
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = nvim
+  autocrlf = input
+  ignorecase = false
+
+[color]
+  ui = true
+
+[alias]
+  aa = add --all
+  ap = add --patch
+  c = commit
+  ca = commit --amend
+  co = checkout
+  context = blame
+  f = fetch --all
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  s = status -s
+
+[push]
+  default = simple
+

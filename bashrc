@@ -44,18 +44,25 @@ export LESS_TERMCAP_ZW=$(tput rsupm)
 ##      Dev Setup        ##
 ###########################
 
-# Setting default editor to vim
-export EDITOR='/usr/bin/vim'
-
-export NVM_DIR="/Users/lee/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export MONO_GAC_PREFIX="/usr/local"
-
-source ./git-completion.bash
+# Setting default editor to nvim
+export EDITOR='/usr/bin/nvim'
 
 ###########################
 ##        Aliases        ##
 ###########################
+
+alias brewski='brew update && brew upgrade --all && brew cleanup'
+
+alias b="bundle"
+alias bi="b install --path vendor"
+alias bil="bi --local"
+alias bu="b update"
+alias be="b exec"
+alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
+
+alias vim="nvim"
+
+alias ll="ls -la"
 
 # added by travis gem
 [ -f /Users/lee/.travis/travis.sh ] && source /Users/lee/.travis/travis.sh

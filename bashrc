@@ -15,3 +15,19 @@
 # prompt-string, env settings, etc. They should be silent settings, i.e., no
 # noise to stdout.
 
+
+###########################
+##      Dev Setup        ##
+###########################
+
+export EDITOR='/usr/bin/nvim'
+export CLICOLOR=1 # colorize ls
+
+
+###########################
+##        Aliases        ##
+###########################
+
+alias vim="nvim"
+alias ll="ls -la"
+

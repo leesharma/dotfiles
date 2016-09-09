@@ -15,3 +15,13 @@
 # prompt-string, env settings, etc. They should be silent settings, i.e., no
 # noise to stdout.
 
+
+############################
+##      Path Setup        ##
+############################
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+export PATH
+

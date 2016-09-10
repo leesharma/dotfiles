@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="amethyst asdfrc bashrc bash_profile iex.exs vimrc vim tmux.conf git_template gitconfig gitignore_global tool-versions"    # list of files/folders to symlink in homedir
+files="asdfrc bashrc bash_profile config tmux.conf gitconfig gitignore_global tool-versions"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -29,3 +29,9 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+
+# get ready for neovim
+nvim_home=~/.config
+ln -s $nvim_home/nvim ~/.vim
+ln -s $nvim_home/nvim/init.vim ~/.vimrc

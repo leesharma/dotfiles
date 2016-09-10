@@ -26,6 +26,9 @@ Plugin 'kien/ctrlp.vim'                   " fuzzy file finding {{{
   let g:ctrlp_working_path_mode = 'ra'
 " }}}
 
+Plugin 'elixir-lang/vim-elixir'         " elixir highlighting for vim
+Plugin 'slashmili/alchemist.vim'        " ide-like utilities for alchemist
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

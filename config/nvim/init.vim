@@ -60,6 +60,11 @@ filetype plugin indent on    " required
   set ruler
 " }}}
 
+" {{{ INDENTATION
+" language-specific settings found in ./vim/after/ftplugin/*.vim
+  set expandtab shiftwidth=2 tabstop=2 "preferred default settings"
+" }}}
+
 " {{{ SEARCH
   set hlsearch
   set incsearch
@@ -74,3 +79,6 @@ filetype plugin indent on    " required
   endif
 " }}}
 
+" {{{ VIM FUNCTIONALITY
+  set backspace= "disable backspace for a better vim mindset"
+" }}}

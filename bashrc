@@ -29,5 +29,6 @@ export CLICOLOR=1 # colorize ls
 ###########################
 
 alias vim="nvim"
-alias ll="ls -la"
+alias ll="ls -la; printf \"\033[0;33mcurrent:\033[0m `pwd`\n\""
+alias homebrew="brew update;brew upgrade;brew cleanup"
 

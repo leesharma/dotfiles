@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="asdfrc bashrc bash_profile config tmux.conf gitconfig gitignore_global tool-versions"    # list of files/folders to symlink in homedir
+files="asdfrc bashrc bash_profile bundle config tmux.conf gitconfig gitignore_global tool-versions"    # list of files/folders to symlink in homedir
 
 ##########
 

@@ -5,3 +5,6 @@ config/nvim/bundle/
 # exclude dictionaries
 config/nvim/spell
 
+# exclude bundle cache
+bundle/cache
+

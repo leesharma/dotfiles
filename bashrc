@@ -32,3 +32,14 @@ alias vim="nvim"
 alias ll="ls -la; printf \"\033[0;33mcurrent:\033[0m `pwd`\n\""
 alias homebrew="brew update;brew upgrade;brew cleanup"
 
+# Install gems locally to keep dependencies isolated. For more info,
+#   http://ryan.mcgeary.org/2011/02/09/vendor-everything-still-applies
+
+alias b="bundle"
+alias bi="b install --path vendor"
+alias bil="bi --local"
+alias bu="b update"
+alias bp="b package --all"
+alias be="b exec"
+alias binit="bi && bp && echo 'vendor/ruby' >> .gitignore"
+

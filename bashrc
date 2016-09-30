@@ -29,8 +29,8 @@ export CLICOLOR=1 # colorize ls
 ###########################
 
 alias vim="nvim"
-alias ll="ls -la; printf \"\033[0;33mcurrent:\033[0m `pwd`\n\""
-alias homebrew="brew update;brew upgrade;brew cleanup"
+alias ll="ls -halp"
+alias homebrew="brew update;brew upgrade;brew cleanup;brew cask cleanup"
 
 # Install gems locally to keep dependencies isolated. For more info,
 #   http://ryan.mcgeary.org/2011/02/09/vendor-everything-still-applies

@@ -20,6 +20,9 @@
 ##      Path Setup        ##
 ############################
 
+PATH=$PATH:~/GitHub/bin
+PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 

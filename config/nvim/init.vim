@@ -89,6 +89,5 @@ filetype plugin indent on    " required
 " }}}
 
 " {{{ VIM FUNCTIONALITY
-  set backspace= "disable backspace for a better vim mindset"
   set mouse= "disable mouse highlighting"
 " }}}

@@ -20,6 +20,10 @@ Plugin 'bling/vim-airline'                " better status line {{{
   set laststatus=2
   let g:airline#extensions#tabline#enabled = 3
 " }}}
+Plugin 'vim-airline/vim-airline-themes'   " make the status bar a reasonable color {{{
+   set background=dark
+   let g:airline_theme='solarized'
+" }}}
 Plugin 'kien/ctrlp.vim'                   " fuzzy file finding {{{
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'

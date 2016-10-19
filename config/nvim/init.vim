@@ -33,8 +33,9 @@ Plugin 'kien/ctrlp.vim'                   " fuzzy file finding {{{
 Plugin 'elixir-lang/vim-elixir'         " elixir highlighting for vim
 Plugin 'slashmili/alchemist.vim'        " ide-like utilities for alchemist
 
-Plugin 'rust-lang/rust.vim'             " rust file detection, highlighting, etc.
+Plugin 'ElmCast/elm-vim'                " elm support
 
+Plugin 'rust-lang/rust.vim'             " rust file detection, highlighting, etc.
 Plugin 'cespare/vim-toml'               " TOML detection/highlighting
 
 " All of your Plugins must be added before the following line

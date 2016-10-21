@@ -2,60 +2,45 @@
 " }}}
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype plugin indent on
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'              " let Vundle manage Vundle, required
-Plugin 'christoomey/vim-tmux-navigator' " navigate seamlessly between tmux and vim
-Plugin 'tpope/vim-surround'             " quoting/parenthesizing made simple
-Plugin 'ap/vim-css-color'               " highlight CSS hex colors
-Plugin 'ntpeters/vim-better-whitespace' " highlight and remove whitespace
-Plugin 'bling/vim-airline'                " better status line {{{
-  let g:airline_powerline_fonts = 1
-  set laststatus=2
-  let g:airline#extensions#tabline#enabled = 3
-" }}}
-Plugin 'vim-airline/vim-airline-themes'   " make the status bar a reasonable color {{{
-   set background=dark
-   let g:airline_theme='solarized'
-" }}}
-Plugin 'altercation/vim-colors-solarized' " nicer solarized color scheme {{{
-  " colorscheme solarized set below in APPEARANCE
-" }}}
-Plugin 'kien/ctrlp.vim'                   " fuzzy file finding {{{
+Plug 'christoomey/vim-tmux-navigator' " navigate seamlessly between tmux and vim
+Plug 'tpope/vim-surround'             " quoting/parenthesizing made simple
+Plug 'ap/vim-css-color'               " highlight CSS hex colors
+Plug 'ntpeters/vim-better-whitespace' " highlight and remove whitespace
+Plug 'kien/ctrlp.vim'                   " fuzzy file finding {{{
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
   let g:ctrlp_working_path_mode = 'ra'
 " }}}
 
-Plugin 'elixir-lang/vim-elixir'         " elixir highlighting for vim
-Plugin 'slashmili/alchemist.vim'        " ide-like utilities for alchemist
+" LANGUAGE SUPPORT AND EXTENSION
+Plug 'elixir-lang/vim-elixir',  { 'for': 'elixir' }
+Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 
-Plugin 'ElmCast/elm-vim'                " elm support
+Plug 'ElmCast/elm-vim',         { 'for': 'elm' }
 
-Plugin 'rust-lang/rust.vim'             " rust file detection, highlighting, etc.
-Plugin 'cespare/vim-toml'               " TOML detection/highlighting
+Plug 'rust-lang/rust.vim',      { 'for': 'rust' }
+Plug 'cespare/vim-toml',        { 'for': 'toml' }
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" {{{ APPEARANCE AND THEMES
+Plug 'bling/vim-airline'                " better status line {{{
+  let g:airline_powerline_fonts = 1
+  set laststatus=2
+  let g:airline#extensions#tabline#enabled = 3
+" }}}
+Plug 'vim-airline/vim-airline-themes'   " make the status bar a reasonable color {{{
+   set background=dark
+   let g:airline_theme='solarized'
+" }}}
+Plug 'altercation/vim-colors-solarized' " nicer solarized color scheme {{{
+  " colorscheme solarized set below in APPEARANCE
+" }}}
+" }}}
 
+call plug#end()
 
 " {{{ LAYOUT BALANCING
 " automatically rebalance windows on vim resize

@@ -1,6 +1,5 @@
-# exclude Vundle bundles
-config/nvim/bundle/
-!config/nvim/bundle/Vundle.vim/
+# exclude vim-plug plugs
+config/nvim/plugged/
 
 # exclude dictionaries
 config/nvim/spell

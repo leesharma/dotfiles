@@ -24,6 +24,9 @@ Plugin 'vim-airline/vim-airline-themes'   " make the status bar a reasonable col
    set background=dark
    let g:airline_theme='solarized'
 " }}}
+Plugin 'altercation/vim-colors-solarized' " nicer solarized color scheme {{{
+  " colorscheme solarized set below in APPEARANCE
+" }}}
 Plugin 'kien/ctrlp.vim'                   " fuzzy file finding {{{
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
@@ -81,6 +84,7 @@ filetype plugin indent on    " required
 
 " {{{ APPEARANCE
   "line length indicator"
+  colorscheme solarized " from altercation/vim-colors-solarized
   if exists('+colorcolumn')
     set colorcolumn=80
   else

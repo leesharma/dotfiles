@@ -1,4 +1,6 @@
 " To-Do List {{{
+" - Make a 'default' theme that's easy to switch to for non-solarized
+"   terminals
 " }}}
 
 set nocompatible              " be iMproved, required
@@ -8,7 +10,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator' " navigate seamlessly between tmux and vim
 Plug 'tpope/vim-surround'             " quoting/parenthesizing made simple
-Plug 'ap/vim-css-color'               " highlight CSS hex colors
 Plug 'ntpeters/vim-better-whitespace' " highlight and remove whitespace
 Plug 'kien/ctrlp.vim'                   " fuzzy file finding {{{
   let g:ctrlp_map = '<c-p>'
@@ -16,14 +17,24 @@ Plug 'kien/ctrlp.vim'                   " fuzzy file finding {{{
   let g:ctrlp_working_path_mode = 'ra'
 " }}}
 
-" LANGUAGE SUPPORT AND EXTENSION
-Plug 'elixir-lang/vim-elixir',  { 'for': 'elixir' }
+" LANGUAGES
+" note: many plugins load for markdown files in order to get proper syntax
+"       highlighting for fenced code blocks
+
+Plug 'elixir-lang/vim-elixir',  { 'for': ['elixir', 'markdown'] }
 Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 
-Plug 'ElmCast/elm-vim',         { 'for': 'elm' }
+Plug 'ElmCast/elm-vim',         { 'for': ['elm', 'markdown'] }
 
-Plug 'rust-lang/rust.vim',      { 'for': 'rust' }
+Plug 'rust-lang/rust.vim',      { 'for': ['rust', 'markdown'] }
 Plug 'cespare/vim-toml',        { 'for': 'toml' }
+
+" highlight CSS hex colors
+Plug 'ap/vim-css-color',        { 'for': ['css', 'scss'] }
+
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } "{{{
+let g:vim_markdown_folding_disabled = 1
+"}}}
 
 " {{{ APPEARANCE AND THEMES
 Plug 'bling/vim-airline'                " better status line {{{

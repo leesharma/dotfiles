@@ -1,21 +1,24 @@
-" To-Do List {{{
+" {{{ To-Do List
 " - Make a 'default' theme that's easy to switch to for non-solarized
 "   terminals
 " }}}
 
-set nocompatible              " be iMproved, required
+set nocompatible " be iMproved, required
 filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'christoomey/vim-tmux-navigator' " navigate seamlessly between tmux and vim
-Plug 'tpope/vim-surround'             " quoting/parenthesizing made simple
-Plug 'ntpeters/vim-better-whitespace' " highlight and remove whitespace
-Plug 'kien/ctrlp.vim'                   " fuzzy file finding {{{
+Plug 'christoomey/vim-tmux-navigator' " navigate seamlessly between tmux and vim {{{
+  " layout rebalancing: automatically rebalance windows on vim resize
+  autocmd VimResized * :wincmd =
+"}}}
+Plug 'kien/ctrlp.vim'                 " fuzzy file finding {{{
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
   let g:ctrlp_working_path_mode = 'ra'
 " }}}
+Plug 'tpope/vim-surround'             " quoting/parenthesizing made simple
+Plug 'ntpeters/vim-better-whitespace' " highlight and remove whitespace
 
 " LANGUAGES
 " note: many plugins load for markdown files in order to get proper syntax
@@ -52,11 +55,6 @@ Plug 'altercation/vim-colors-solarized' " nicer solarized color scheme {{{
 " }}}
 
 call plug#end()
-
-" {{{ LAYOUT BALANCING
-" automatically rebalance windows on vim resize
-  autocmd VimResized * :wincmd =
-" }}}
 
 " {{{ SPELLCHECK
   set complete+=kspell  "autocomplete words if spellcheck is enabled"

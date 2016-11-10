@@ -3,4 +3,3 @@ BUNDLE_BUILD__PG: "--with-pg-config=/Applications/Postgres.app/Contents/Versions
 BUNDLE_GEM__COC: 'true'
 BUNDLE_GEM__MIT: 'true'
 BUNDLE_GEM__TEST: rspec
-BUNDLE_BUILD__NOKOGIRI: "--use-system-libraries"

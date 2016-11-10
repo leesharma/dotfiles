@@ -20,6 +20,7 @@
 ##      Path Setup        ##
 ############################
 
+PATH=$PATH:~/.asdf/shims
 PATH=$PATH:~/GitHub/bin
 PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
